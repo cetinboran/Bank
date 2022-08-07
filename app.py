@@ -140,7 +140,7 @@ def register_bank(customers, accounts):
     account_list = []
 
 
-    if len(username) > 3 and len(password) > 3:
+    if len(username) > 3 and len(password) > 2:
         cust = Customer(username, password)
         customers.append(cust)
 

@@ -1,14 +1,3 @@
 [
-    {
-        "customerId": 1,
-        "id": 1,
-        "balance": 497,
-        "accountName": "Boran's Savings"
-    },
-    {
-        "customerId": 2,
-        "id": 2,
-        "balance": 503,
-        "accountName": "malkaan"
-    }
+
 ]
