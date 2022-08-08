@@ -206,8 +206,8 @@ class Bank():
                 self.Register()
             elif(command == "9"): 
                 Login = False
-
-        self.findCustomerAccounts(customer)
+        
+        if customer != None: self.findCustomerAccounts(customer)
 
         while customer != None:
             os.system("cls")
