@@ -2,13 +2,19 @@
     {
         "customerId": 1,
         "id": 1,
-        "balance": 5000,
-        "accountName": "Boran"
+        "balance": 300,
+        "accountName": "borann"
+    },
+    {
+        "customerId": 1,
+        "id": 2,
+        "balance": 0,
+        "accountName": "baaa"
     },
     {
         "customerId": 2,
-        "id": 2,
-        "balance": 5000,
-        "accountName": "Kaan"
+        "id": 3,
+        "balance": 900,
+        "accountName": "malkaan"
     }
 ]

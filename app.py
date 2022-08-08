@@ -123,7 +123,7 @@ def updateCustomerJSON(customers):
 
 
 def login_bank(bank, customers, accounts, customerAccounts):
-    customer = bank.Authentication(customers)
+    customer = bank.Authentication()
     if customer != None: 
         for account in accounts:
             if customer.id == account.customer_id:
@@ -163,8 +163,8 @@ def Start():
     customers = []
     BoranBank = Bank("Boran")
 
-    init_customers(customers)
-    init_accounts(accounts)
+    # init_customers(customers)
+    # init_accounts(accounts)
 
     customerAccounts = []
 
@@ -184,6 +184,7 @@ def Start():
             customer = None
             Login = False
             return customer
+    
             
             
     while customer != None and Login == True:
@@ -211,4 +212,4 @@ def Start():
             transfer_money(customerAccounts, accounts)
             updateAccountJSON(accounts)
 
-Start()
+BoranBank = Bank("Boran")
