@@ -161,7 +161,7 @@ def register_bank(customers, accounts):
 def Start():
     accounts = []
     customers = []
-    BoranBank = Bank()
+    BoranBank = Bank("Boran")
 
     init_customers(customers)
     init_accounts(accounts)
