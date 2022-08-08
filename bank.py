@@ -8,14 +8,12 @@ class Bank():
     def __init__(self, Name) -> None:
         self.name = Name
 
-        self.accounts_list = []
-        self.customers_accounts_list = []
-        self.target_accounts_list = []
-        self.customers_list = []
+        self.accounts_list = []             # All Accounts
+        self.customers_accounts_list = []   # Just Customer's Accounts
+        self.target_accounts_list = []      # Target Accounts 
+        self.customers_list = []            # Customers
 
         self.init_JSON(self.accounts_list, self.customers_list)
-
-        self.Start()
 
 
     def init_JSON(self, accounts_list, customers_list):
@@ -106,6 +104,7 @@ class Bank():
 
         for account in self.customers_accounts_list:
             print(f"Id: {account.id} | Balance: {account.balance} | Accout Name: {account.accountName}")
+        print("*************************************************")
 
         try:
             id = int(input("Choose from your accounts\nEnter your account id: "))
@@ -113,6 +112,7 @@ class Bank():
                 if account.id == id:
                     return account
                     break
+            input("Invalid ID")
         except:
             input("Invalid Entry")
 
@@ -139,7 +139,6 @@ class Bank():
         for account in self.customers_accounts_list:
             print(f"Id: {account.id} | Balance: {account.balance} | Accout Name: {account.accountName}")
         input("*******************************************")
-
 
     def deposit_money(self):
         customer_account = self.select_customer_account()
@@ -174,11 +173,19 @@ class Bank():
                             input(f"Remaining Balance: {customer_account.balance} ")
 
                             self.update_accounts_JSON()
+                        else: input("You dont have enought money")
                     else: input("You cant transfer negative amount")
                 except:
                     print("Invalid Entry")
-            else: input("You have to enter a valid target id.")
-        else: input("You have to enter a valid target id.")
+            else: input("You have to enter a valid target id")
+        else: input("You have to enter a valid target id")
+
+    def create_new_account(self, customer):
+        accountName = input("Enter your account name: ")
+        newAccount = Account(customer.id, 0, accountName)
+        self.accounts_list.append(newAccount)
+        self.update_accounts_JSON()
+        self.customers_accounts_list.append(newAccount)
 
 
     def Start(self):
@@ -208,6 +215,7 @@ class Bank():
             print("2 - Withdraw Money")
             print("3 - Deposit Money")
             print("4 - Transfer Money")
+            print("5 - Create New Account")
             print("9 - Quit")
             command = input(">: ")
 
@@ -220,3 +228,5 @@ class Bank():
                 self.deposit_money()
             elif(command == "4"): 
                 self.transfer_money()
+            elif(command == "5"):
+                self.create_new_account(customer)
